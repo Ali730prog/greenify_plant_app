@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:greenfiy/app_const/app_color.dart';
 import 'package:greenfiy/app_const/app_images.dart';
+import 'package:greenfiy/app_screen/detail_screen/detail_screen.dart';
 import 'package:greenfiy/common_widget/bold_text.dart';
 import 'package:greenfiy/common_widget/light_text.dart';
 
@@ -13,7 +14,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -28,16 +30,40 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         "name": "avelo veria",
         "image": "${AppImages.product_1}",
         "price": "40",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Short Tree",
         "image": "${AppImages.product_3}",
         "price": "50",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Trees",
         "image": "${AppImages.product_2}",
         "price": "30",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       }
     ],
     "Out": [
@@ -45,16 +71,40 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         "name": "Aloe vera",
         "image": "${AppImages.favourite_1}",
         "price": "40",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Flowers",
         "image": "${AppImages.favourite_2}",
         "price": "50",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Flowers",
         "image": "${AppImages.product_4}",
         "price": "30",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       }
     ],
     "Garden": [
@@ -62,16 +112,40 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         "name": "Tulip",
         "image": "${AppImages.product_6}",
         "price": "40",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Flowers",
         "image": "${AppImages.product_7}",
         "price": "50",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Flowers",
         "image": "${AppImages.product_8}",
         "price": "30",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       }
     ],
     "Indoor": [
@@ -79,16 +153,40 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         "name": "Greens",
         "image": "${AppImages.product_9}",
         "price": "40",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Greens",
         "image": "${AppImages.product_10}",
         "price": "50",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Greens",
         "image": "${AppImages.product_11}",
         "price": "30",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       }
     ],
     "All": [
@@ -96,73 +194,169 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         "name": "Greens",
         "image": "${AppImages.product_9}",
         "price": "40",
-        "type": "Outdoor"
+        "type": "Outdoor",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Greens",
         "image": "${AppImages.product_10}",
         "price": "50",
-        "type": "Indoor"
+        "type": "Indoor",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Greens",
         "image": "${AppImages.product_11}",
         "price": "30",
-        "type": "Indoor"
+        "type": "Indoor",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Aloe Vera",
         "image": "${AppImages.favourite_1}",
         "price": "40",
-        "type": "Outdoor"
+        "type": "Outdoor",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Flowers",
         "image": "${AppImages.favourite_2}",
         "price": "50",
-        "type": "Office"
+        "type": "Office",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Flowers",
         "image": "${AppImages.product_4}",
         "price": "30",
-        "type": "Garden"
+        "type": "Garden",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Tulip",
         "image": "${AppImages.product_6}",
         "price": "40",
-        "type": "Office"
+        "type": "Office",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Flowers",
         "image": "${AppImages.product_7}",
         "price": "50",
-        "type": "Indoor"
+        "type": "Indoor",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Flowers",
         "image": "${AppImages.product_8}",
         "price": "30",
-        "type": "Garden"
+        "type": "Garden",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "avelo veria",
         "image": "${AppImages.product_1}",
         "price": "40",
-        "type": "Office"
+        "type": "Office",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Short Tree",
         "image": "${AppImages.product_3}",
         "price": "50",
-        "type": "Outdoor"
+        "type": "Outdoor",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       },
       {
         "name": "Trees",
         "image": "${AppImages.product_2}",
         "price": "30",
-        "type": "Indoor"
+        "type": "Indoor",
+        "des": "Aloe Vera also known as aloe africana has"
+            "strong air purifying qualities. This succulant"
+            "plant is known for purifying air from chemicals"
+            "found in household cleaning product. Unlike"
+            "other indoor plant Aloe keeps water in its"
+            "leavesnot the soil untill it needs it. Aloe requires"
+            "Bright sun light even though it only need very"
+            "little water."
       }
     ]
   };
@@ -194,7 +388,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         backgroundColor: AppColor.greyDADADA4D,
         body: Column(
           children: [
-            SizedBox(height: h * 0.02,),
+            SizedBox(
+              height: h * 0.02,
+            ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: w * 0.05),
               child: Container(
@@ -230,15 +426,16 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                         fontSize: 16,
                         color: AppColor.green118844,
                       ),
-                      contentPadding: EdgeInsets.only(
-                          left: w * 0.10, top: h * 0.03 / 2),
+                      contentPadding:
+                          EdgeInsets.only(left: w * 0.10, top: h * 0.03 / 2),
                     ),
                   ),
                 ),
               ),
             ),
-            SizedBox(height: h * 0.02,),
-
+            SizedBox(
+              height: h * 0.02,
+            ),
             SizedBox(
               height: h * 0.20,
               child: Padding(
@@ -266,7 +463,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             ),
                             LightText(
                               text:
-                              "Amet minim mollit non deserunt \nullamco est sit aliqua dolor do \namet sint. Velit officia consequat\n duis enim velit mollit. ",
+                                  "Amet minim mollit non deserunt \nullamco est sit aliqua dolor do \namet sint. Velit officia consequat\n duis enim velit mollit. ",
                               fontSize: 11,
                               fontWeight: FontWeight.w600,
                             ),
@@ -311,16 +508,15 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 ),
               ),
             ),
-            SizedBox(height: h * 0.02,),
+            SizedBox(
+              height: h * 0.02,
+            ),
             TabBar(
               controller: _tabController,
               isScrollable: true,
               indicator: BoxDecoration(),
               labelStyle: GoogleFonts.montserrat(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                  color: Colors.red
-              ),
+                  fontWeight: FontWeight.bold, fontSize: 15, color: Colors.red),
               labelColor: AppColor.green118844,
               unselectedLabelColor: AppColor.grey4D4D4D,
               tabs: const [
@@ -338,18 +534,34 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   // All tab
                   Column(
                     children: [
-                      SizedBox(height:250,
+                      SizedBox(
+                        height: 250,
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemExtent: 250,
-                          itemCount: plants['All']?.length ?? 0,   
+                          itemCount: plants['All']?.length ?? 0,
                           itemBuilder: (context, index) {
-                            var plant = plants['All']![index]; // Access 'All' category
-                            return _wishListWidget(
-                              name: plant['name'],
-                              site: plant['type'],
-                              price: plant['price'],
-                              image: plant['image'],
+                            var plant =
+                                plants['All']![index]; // Access 'All' category
+                            return InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DetailScreen(
+                                              type: plant['type'],
+                                              desc: plant['des'],
+                                              image: plant['image'],
+                                              name: plant['name'],
+                                              price: int.parse(plant['price']) ,
+                                            )));
+                              },
+                              child: _wishListWidget(
+                                name: plant['name'],
+                                site: plant['type'],
+                                price: plant['price'],
+                                image: plant['image'],
+                              ),
                             );
                           },
                         ),
@@ -360,49 +572,73 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   // Indoor tab
                   Column(
                     children: [
-                      SizedBox(height:250,
+                      SizedBox(
+                        height: 250,
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemExtent: 250,
                           itemCount: plants['Indoor']?.length ?? 0,
                           itemBuilder: (context, index) {
                             var indoor = plants['Indoor']![index];
-                            return _wishListWidget(
-                              name: indoor['name'],
-                              site: "indoor",
-                              price: indoor['price'],
-                              image: indoor['image'],
+                            return InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DetailScreen(
+                                              price: int.parse(indoor['price']) ,
+                                              name: indoor['name'],
+                                              image: indoor['image'],
+                                              desc: indoor['des'],
+                                              type: "indoor",
+                                            )));
+                              },
+                              child: _wishListWidget(
+                                name: indoor['name'],
+                                site: "indoor",
+                                price: indoor['price'],
+                                image: indoor['image'],
+                              ),
                             );
                           },
                         ),
                       ),
-
                     ],
                   ),
 
                   Column(
                     children: [
-                      Container(height: 250,
-
+                      Container(
+                        height: 250,
                         child: ListView.builder(
                           primary: true,
                           shrinkWrap: true,
-
                           scrollDirection: Axis.horizontal,
                           itemExtent: 250,
                           physics: AlwaysScrollableScrollPhysics(),
                           itemCount: plants['Out']?.length ?? 0,
-
                           itemBuilder: (context, index) {
                             var plant = plants['Out']![index];
-                            return _wishListWidget(
-                              name: plant['name'],
-                              site: "outdoor",
-                              price: plant['price'],
-                              image: plant['image'],
+                            return InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DetailScreen(
+                                              type: "outdoor",
+                                              desc: plant['des'],
+                                              image: plant['image'],
+                                              price: int.parse(plant['price']),
+                                              name: plant['name'],
+                                            )));
+                              },
+                              child: _wishListWidget(
+                                name: plant['name'],
+                                site: "outdoor",
+                                price: plant['price'],
+                                image: plant['image'],
+                              ),
                             );
-
-
                           },
                         ),
                       ),
@@ -412,19 +648,34 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   // Garden tab
                   Column(
                     children: [
-                      Container(height:250,
+                      Container(
+                        height: 250,
                         child: ListView.builder(
-
                           scrollDirection: Axis.horizontal,
                           itemExtent: 250,
-                          itemCount: plants['Garden']?.length ?? 0,   
+                          itemCount: plants['Garden']?.length ?? 0,
                           itemBuilder: (context, index) {
-                            var plant = plants['Garden'][index]; // Access 'Garden' category
-                            return _wishListWidget(
-                              name: plant['name'],
-                              site: "Garden",
-                              price: plant['price'],
-                              image: plant['image'],
+                            var plant = plants['Garden']
+                                [index]; // Access 'Garden' category
+                            return InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DetailScreen(
+                                              desc: plant['des'],
+                                              price: int.parse(plant['price']),
+                                              image: plant['image'],
+                                              name: plant['name'],
+                                              type: "Garden",
+                                            )));
+                              },
+                              child: _wishListWidget(
+                                name: plant['name'],
+                                site: "Garden",
+                                price: plant['price'],
+                                image: plant['image'],
+                              ),
                             );
                           },
                         ),
@@ -435,18 +686,33 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   // Office tab
                   Column(
                     children: [
-                      SizedBox(height:250,
+                      SizedBox(
+                        height: 250,
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemExtent: 250,
                           itemCount: plants['Office']?.length ?? 0,
                           itemBuilder: (context, index) {
                             var plant = plants['Office']![index];
-                            return _wishListWidget(
-                              name: plant['name'],
-                              site: "Office",
-                              price: plant['price'],
-                              image: plant['image'],
+                            return InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DetailScreen(
+                                              desc: plant['des'],
+                                              type: "Office",
+                                              name: plant['name'],
+                                              image: plant['image'],
+                                              price: int.parse(plant['price']),
+                                            )));
+                              },
+                              child: _wishListWidget(
+                                name: plant['name'],
+                                site: "Office",
+                                price: plant['price'],
+                                image: plant['image'],
+                              ),
                             );
                           },
                         ),
@@ -470,7 +736,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   }) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
-    return Container(margin: EdgeInsets.only(top: 10,left: 20,bottom: 5),
+    return Container(
+        margin: EdgeInsets.only(top: 10, left: 20, bottom: 5),
         decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -494,11 +761,11 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 children: [
                   Center(
                       child: Image.asset(
-                        image,
-                        width: w * 0.40,
-                        height: h * 0.23,
-                        fit: BoxFit.contain,
-                      )),
+                    image,
+                    width: w * 0.40,
+                    height: h * 0.23,
+                    fit: BoxFit.contain,
+                  )),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -536,11 +803,11 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             color: AppColor.greyE0E0E0),
                         child: Center(
                             child: BoldText(
-                              text: "\$${price}",
-                              fontweight: FontWeight.bold,
-                              textsize: 20,
-                              color: AppColor.green80CA5B,
-                            )),
+                          text: "\$${price}",
+                          fontweight: FontWeight.bold,
+                          textsize: 20,
+                          color: AppColor.green80CA5B,
+                        )),
                       ),
                     ],
                   )

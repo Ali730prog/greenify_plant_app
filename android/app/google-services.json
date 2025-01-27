@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "586861663037",
+    "firebase_url": "https://wallify-85936-default-rtdb.firebaseio.com",
+    "project_id": "wallify-85936",
+    "storage_bucket": "wallify-85936.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586861663037:android:290064fae8c66708beeb54",
+        "android_client_info": {
+          "package_name": "com.greenifiy.ahmad"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC69KtnXz4zDwUNRmr2D5z1OwEn9a2cjf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -21,7 +21,8 @@ class CommonButton extends StatelessWidget {
       this.height = 0.07,
       this.color = AppColor.green118844,
       this.ontap,
-      this.border = 2, required });
+      this.border = 09,
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class CommonButton extends StatelessWidget {
       onTap: ontap,
       child: Container(
           decoration: BoxDecoration(color: color,
-          borderRadius: BorderRadius.circular(09),
+          borderRadius: BorderRadius.circular(border!),
             border: Border.all(width: 2,color: borderColor !)
           ),
           width: w * width!,
