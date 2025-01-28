@@ -9,7 +9,9 @@ import 'package:greenfiy/common_widget/common_button.dart';
 import 'package:greenfiy/common_widget/light_text.dart';
 
 class OrderCompleteScreen extends StatefulWidget {
-  const OrderCompleteScreen({super.key});
+  final int? price;
+
+  const OrderCompleteScreen({super.key, this.price});
 
   @override
   State<OrderCompleteScreen> createState() => _OrderCompleteScreenState();
@@ -82,7 +84,7 @@ class _OrderCompleteScreenState extends State<OrderCompleteScreen> {
                       child: LightText(
                         textAlign: TextAlign.center,
                         color: AppColor.grey868686,
-                        text: "Your skincare products are on their way!",
+                        text: "Your Garden products are on their way!",
                         fontSize: 17,
                       ),
                     ),
@@ -93,8 +95,11 @@ class _OrderCompleteScreenState extends State<OrderCompleteScreen> {
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: w * 0.10),
                     child: CommonButton(
-                        ontap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (_)=>BottomBarScreen()));
+                        ontap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => BottomBarScreen()));
                         },
                         text: "Continue Shipping"),
                   ),
@@ -115,5 +120,3 @@ class _OrderCompleteScreenState extends State<OrderCompleteScreen> {
     );
   }
 }
-
-

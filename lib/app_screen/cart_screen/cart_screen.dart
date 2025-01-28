@@ -1,300 +1,157 @@
-// import 'package:flutter/cupertino.dart';
-// import 'package:flutter/material.dart';
-// import 'package:greenfiy/app_const/app_color.dart';
-// import 'package:greenfiy/app_const/app_images.dart';
-// import 'package:greenfiy/common_widget/bold_text.dart';
-// import 'package:greenfiy/common_widget/common_button.dart';
-// import 'package:greenfiy/common_widget/light_text.dart';
-//
-// class CartScreen extends StatefulWidget {
-//   const CartScreen({super.key});
-//
-//   @override
-//   State<CartScreen> createState() => _CartScreenState();
-// }
-//
-// class _CartScreenState extends State<CartScreen> {
-//   List<Map<String, String>> wishList = [
-//     {
-//       "image": "${AppImages.cart_1}",
-//       "name": "Aloe vera",
-//       "site": "outdoor",
-//       "price": "40",
-//       "qty": "1",
-//     },
-//     {
-//       "image": "${AppImages.cart_2}",
-//       "name": "Flowers",
-//       "site": "outdoor",
-//       "price": "50",
-//       "qty": "1",
-//     },
-//     {
-//       "image": "${AppImages.cart_3}",
-//       "name": "Aloe vera",
-//       "site": "outdoor",
-//       "price": "40",
-//       "qty": "1",
-//     },
-//   ];
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     double h = MediaQuery.of(context).size.height;
-//     double w = MediaQuery.of(context).size.width;
-//
-//     return SafeArea(
-//       child: Scaffold(
-//         appBar: AppBar(
-//           iconTheme: IconThemeData(color: AppColor.whiteFFFFFF),
-//           leading: IconButton(
-//               onPressed: () {
-//                 Navigator.pop(context);
-//               },
-//               icon: Icon(Icons.arrow_back_ios)),
-//           automaticallyImplyLeading: false,
-//           backgroundColor: AppColor.green118844,
-//           centerTitle: true,
-//           title: BoldText(
-//             text: "Cart",
-//             color: AppColor.whiteFFFFFF,
-//             fontweight: FontWeight.w600,
-//             textsize: 20,
-//           ),
-//         ),
-//         backgroundColor: AppColor.whiteFFFFFF,
-//         body: Column(
-//           children: [
-//             SizedBox(
-//               height: h * 0.02,
-//             ),
-//             ListView.builder(
-//               shrinkWrap: true,
-//               itemCount: wishList.length,
-//               itemBuilder: (context, index) {
-//                 String price = wishList[index]['price'] ?? "";
-//                 String qty1 = wishList[index]['qty'] ?? "1";
-//                 int totalprice = int.parse(price) * int.parse(qty1);
-//                 return Container(
-//                   height: 150,
-//                   child: _cartWidget(
-//                     name: wishList[index]['name'] ?? "Unknown",
-//                     site: wishList[index]['site'] ?? "Unknown",
-//                     price: totalprice.toString(),
-//                     image: wishList[index]['image'] ?? AppImages.cart_1,
-//                     qty: int.parse(qty1),
-//                   ),
-//                 );
-//               },
-//             ),
-//             BoldText(text: "Total Price:  \$ "),
-//             CommonButton(text: "Buy Now")
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-//
-//   Widget _cartWidget({
-//     required String name,
-//     required String site,
-//     required String price,
-//     required String image,
-//     required int qty,
-//   }) {
-//     double w = MediaQuery.of(context).size.width;
-//     double h = MediaQuery.of(context).size.height;
-//     int? totalqty;
-//
-//     return Padding(
-//       padding: EdgeInsets.symmetric(horizontal: w * 0.03),
-//       child: SizedBox(
-//         height: h * 0.17,
-//         child: Card(
-//           shadowColor: AppColor.grey544C4C,
-//           elevation: 05,
-//           color: AppColor.whiteFFFFFF,
-//           child: Row(
-//             mainAxisAlignment: MainAxisAlignment.start,
-//             children: [
-//               Image.asset(
-//                 image,
-//                 width: w * 0.21,
-//                 fit: BoxFit.contain,
-//               ),
-//               Padding(
-//                 padding: EdgeInsets.only(left: w * 0.02),
-//                 child: Column(
-//                   crossAxisAlignment: CrossAxisAlignment.start,
-//                   mainAxisAlignment: MainAxisAlignment.center,
-//                   children: [
-//                     BoldText(
-//                       text: name,
-//                       color: AppColor.green80CA5B,
-//                       fontweight: FontWeight.w600,
-//                       textsize: 16,
-//                     ),
-//                     SizedBox(
-//                       height: h * 0.003,
-//                     ),
-//                     LightText(
-//                       text: site,
-//                       color: AppColor.grey4D4D4D,
-//                       fontWeight: FontWeight.w600,
-//                       fontSize: 13,
-//                     ),
-//                     SizedBox(
-//                       height: h * 0.01,
-//                     ),
-//                     Padding(
-//                       padding: EdgeInsets.only(left: w * 0.02),
-//                       child: Row(
-//                         crossAxisAlignment: CrossAxisAlignment.center,
-//                         children: [
-//                           LightText(
-//                             text: "Price",
-//                             color: AppColor.grey898989,
-//                             fontWeight: FontWeight.w700,
-//                             fontSize: 16,
-//                           ),
-//                           LightText(
-//                             text: "  ${price} \$",
-//                             color: AppColor.green80CA5B,
-//                             fontWeight: FontWeight.w600,
-//                             fontSize: 16,
-//                           ),
-//                         ],
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//               Container(
-//                 width: w * 0.27,
-//                 height: h * 0.04,
-//                 decoration: BoxDecoration(
-//                     color: AppColor.greenEBFDF2.withOpacity(0.6),
-//                     borderRadius: BorderRadius.circular(100)),
-//                 child: Stack(
-//                   children: [
-//                     Container(
-//                       child: Center(
-//                         child: Row(
-//                           crossAxisAlignment: CrossAxisAlignment.center,
-//                           children: [
-//                             IconButton(
-//                               onPressed: () {
-//                                 setState(() {
-//                                   totalqty =  qty++;
-//                                 });
-//                               },
-//                               icon: Icon(
-//                                 Icons.add,
-//                                 size: w * 0.05,
-//                                 color: AppColor.green80CA5B,
-//                               ),
-//                             ),
-//                             // Spacer(),
-//                             IconButton(
-//                               onPressed: () {
-//                                 if (qty > 1) {
-//                                   setState(() {
-//                                    totalqty = qty--;
-//
-//                                   });
-//                                 }
-//                               },
-//                               icon: Icon(
-//                                 Icons.remove,
-//                                 size: w * 0.05,
-//                                 color: AppColor.green80CA5B,
-//                               ),
-//                             ),
-//                           ],
-//                         ),
-//                       ),
-//                     ),
-//                     Container(
-//                       margin: EdgeInsets.only(left: w * 0.10),
-//                       width: w * 0.07,
-//                       height: h * 0.50,
-//                       decoration: BoxDecoration(
-//                           color: AppColor.green80CA5B, shape: BoxShape.circle),
-//                       child: Center(
-//                         child: LightText(
-//                           text: totalqty.toString(),
-//                           color: AppColor.whiteFFFFFF,
-//                           fontWeight: FontWeight.w600,
-//                           fontSize: 20,
-//                         ),
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//               Spacer(),
-//               Image.asset(
-//                 AppImages.delete,
-//                 width: w * 0.10,
-//               ),
-//               SizedBox(
-//                 width: w * 0.02,
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-import 'package:flutter/cupertino.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:greenfiy/app_const/app_color.dart';
-import 'package:greenfiy/app_const/app_images.dart';
-import 'package:greenfiy/app_screen/order_complete_screen/order_complete_screen.dart';
-import 'package:greenfiy/app_screen/order_placed_screen/order_placed_screen.dart';
-import 'package:greenfiy/common_widget/bold_text.dart';
-import 'package:greenfiy/common_widget/common_button.dart';
-import 'package:greenfiy/common_widget/light_text.dart';
+import 'package:greenfiy/app_screen/payment_receipt_screen/payment_recipt_screen.dart';
+import '../../app_const/app_color.dart';
+import '../../common_widget/bold_text.dart';
+import '../../common_widget/light_text.dart';
+import '../../common_widget/common_button.dart';
+import '../order_complete_screen/order_complete_screen.dart';
 
 class CartScreen extends StatefulWidget {
-
-  const CartScreen({super.key});
-
   @override
-  State<CartScreen> createState() => _CartScreenState();
+  _CartScreenState createState() => _CartScreenState();
 }
 
 class _CartScreenState extends State<CartScreen> {
-  List<Map<String, dynamic>> wishList = [
-    {
-      "image": "${AppImages.cart_1}",
-      "name": "Aloe vera",
-      "site": "outdoor",
-      "price": 40,
-      "qty": 1,
-    },
-    {
-      "image": "${AppImages.cart_2}",
-      "name": "Flowers",
-      "site": "outdoor",
-      "price": 50,
-      "qty": 1,
-    },
-    {
-      "image": "${AppImages.cart_3}",
-      "name": "Aloe vera",
-      "site": "outdoor",
-      "price": 40,
-      "qty": 1,
-    },
-  ];
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  late User? user;
+  List<Map<String, dynamic>> wishList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    user = FirebaseAuth.instance.currentUser;
+    fetchCartData();
+  }
+
+  Future<void> fetchCartData() async {
+    try {
+      // 1. Fetch the user ID and get the cart ID from the profile data
+      String userId = user!.uid;
+      DocumentSnapshot profileSnapshot = await firestore
+          .collection('users')
+          .doc(userId)
+          .collection('profile')
+          .doc(
+              'profile_data') // Assuming it's the document where cartId is stored
+          .get();
+
+      // Check if profile data exists and contains cartId
+      if (profileSnapshot.exists) {
+        String cartId = profileSnapshot['cartId']; // cartId is stored here
+
+        // 2. Now that we have the cartId, let's fetch the items in that cart
+        QuerySnapshot cartSnapshot = await firestore
+            .collection('users')
+            .doc(userId)
+            .collection('cart')
+            .doc(cartId) // Use the cartId here
+            .collection('items') // This is where items are stored
+            .get();
+
+        // Check if cart has items
+        if (cartSnapshot.docs.isNotEmpty) {
+          setState(() {
+            wishList = cartSnapshot.docs.map((doc) {
+              return {
+                "id": doc.id,
+                "image": doc["productImages"] != null &&
+                        doc["productImages"].isNotEmpty
+                    ? doc["productImages"]
+                        [0] // Use the first image from the list
+                    : "https://firebasestorage.googleapis.com/v0/b/wallify-85936.appspot.com/o/office%2Fcart_3.png?alt=media&token=ff6e8a9d-e09a-4781-819f-c5513b247008", // Default image
+                "name": doc["productName"] ?? "Unknown",
+                "site": doc["productType"] ?? "Unknown",
+                "price": doc["price"] ?? 0,
+                "qty": doc["quantity"] ?? 1,
+                "desc": doc["productDesc"] ?? "No description available",
+                "timestamp": doc["timestamp"],
+                "weight": doc["weight"] ?? "0",
+                "width": doc["width"] ?? "0",
+              };
+            }).toList();
+          });
+        } else {
+          print("No items found in this cart.");
+        }
+      } else {
+        print("No profile data found for this user.");
+      }
+    } catch (e) {
+      print("Error fetching cart data: $e");
+    }
+  }
+
+// Function to delete the item from the cart
+  Future<void> deleteItem(String cartItemId) async {
+    try {
+      // 1. Fetch the user's cartId from their profile
+      String userId = user!.uid;
+      DocumentSnapshot profileSnapshot = await firestore
+          .collection('users')
+          .doc(userId)
+          .collection('profile')
+          .doc('profile_data') // Assuming this is where cartId is stored
+          .get();
+
+      // Check if profile data exists and contains cartId
+      if (profileSnapshot.exists) {
+        String cartId =
+            profileSnapshot['cartId']; // Get the cartId from profile data
+
+        // 2. Delete the item from the correct cart and items collection
+        await firestore
+            .collection('users')
+            .doc(userId)
+            .collection('cart')
+            .doc(cartId) // Use the cartId fetched from profile
+            .collection('items')
+            .doc(cartItemId) // Delete the item using its ID
+            .delete();
+
+        print("Item deleted successfully.");
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text("product deleted successfully")));
+        fetchCartData(); // Re-fetch the cart data after deletion
+      } else {
+        print("No profile data found for this user.");
+      }
+    } catch (e) {
+      print("Error deleting item: $e");
+    }
+  }
+
+  // Function to update the quantity (Increase/Decrease)
+  Future<void> updateItemQuantity(String cartItemId, int quantity) async {
+    try {
+      DocumentReference itemRef = firestore
+          .collection('users')
+          .doc(user!.uid)
+          .collection('cart')
+          .doc(cartItemId)
+          .collection('items')
+          .doc(cartItemId);
+
+      await itemRef.update({
+        'quantity': quantity,
+        'price': quantity *
+            (await itemRef.get())['price'], // Update price based on quantity
+      });
+
+      fetchCartData(); // Re-fetch the data after updating quantity
+    } catch (e) {
+      print("Error updating item: $e");
+    }
+  }
 
   int get totalPrice {
     int total = 0;
     for (var item in wishList) {
-      total += (item['price'] as int) * (item['qty'] as int); // casting as int
+      int price = int.tryParse(item['price'].toString()) ??
+          0; // Default to 0 if it's not a valid number
+      int qty = item['qty'] ?? 0; // Default to 0 if quantity is null
+      total += price * qty; // Multiply the price by the quantity
     }
     return total;
   }
@@ -307,69 +164,70 @@ class _CartScreenState extends State<CartScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: AppColor.whiteFFFFFF),
-              leading:  iscart ?IconButton(
-              onPressed: () {
-                setState(() {
-                  iscart = false;
-                });
-                Navigator.pop(context);
-              },
-              icon: Icon(Icons.arrow_back_ios)) : null,
-          automaticallyImplyLeading: false,
           backgroundColor: AppColor.green118844,
-          centerTitle: true,
-          title: BoldText(
-            text: "Cart",
-            color: AppColor.whiteFFFFFF,
-            fontweight: FontWeight.w600,
-            textsize: 20,
-          ),
+          title: Text("Cart", style: TextStyle(color: AppColor.whiteFFFFFF)),
         ),
         backgroundColor: AppColor.whiteFFFFFF,
-        body: Column(
-          children: [
-            SizedBox(
-              height: h * 0.02,
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: wishList.length,
-              itemBuilder: (context, index) {
-                String name = wishList[index]['name'] ?? "Unknown";
-                String site = wishList[index]['site'] ?? "Unknown";
-                int price = wishList[index]['price'] ?? 0;
-                int qty = wishList[index]['qty'] ?? 1;
+        body: wishList.isEmpty
+            ? Center(child: CircularProgressIndicator())
+            : Column(
+                children: [
+                  SizedBox(height: h * 0.02),
+                  // Display the cart items using the custom widget
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: wishList.length,
+                      itemBuilder: (ctx, index) {
+                        var item = wishList[index];
+                        int price = item['price'];
+                        int quantity = item['qty'];
 
-                int totalprice = price * qty;
-
-                return Container(
-                  height: 150,
-                  child: _cartWidget(
-                    name: name,
-                    site: site,
-                    price: totalprice.toString(),
-                    image: wishList[index]['image'] ?? AppImages.cart_1,
-                    qty: qty,
-                    index: index,
+                        return Container(
+                          height: h * 0.17,
+                          child: _cartWidget(
+                            name: item['name'],
+                            site: item['site'],
+                            price: (price * quantity).toString(),
+                            image: item['image'],
+                            qty: quantity,
+                            index: index,
+                          ),
+                        );
+                      },
+                    ),
                   ),
-                );
-              },
-            ),
-            Spacer(),
-            BoldText(text: "Total Price: \$ ${totalPrice.toString()}"),
-            SizedBox(height: h*0.02,),
-            Padding(
-              padding:  EdgeInsets.symmetric(horizontal: w*0.05),
-              child: CommonButton(
-                  ontap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderCompleteScreen()));
-                  },
-                  text: "Buy Now"),
-            ),
-            SizedBox(height: h*0.02,)
-          ],
-        ),
+                  // Display the total price
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: w * 0.05),
+                    child: BoldText(
+                      text: "Total Price: \$ ${totalPrice.toString()}",
+                      color: AppColor.green80CA5B,
+                      fontweight: FontWeight.w600,
+                      textsize: 20,
+                    ),
+                  ),
+                  SizedBox(height: h * 0.02),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: w * 0.05),
+                    child: CommonButton(
+                      ontap: () {
+                        // Navigate to the order complete screen
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => OrderCompleteReciptScreen(
+                              price: totalPrice,
+                              Date: DateTime.now(),
+                            ),
+                          ),
+                        );
+                      },
+                      text: "Buy Now",
+                    ),
+                  ),
+                  SizedBox(height: h * 0.02),
+                ],
+              ),
       ),
     );
   }
@@ -386,19 +244,19 @@ class _CartScreenState extends State<CartScreen> {
     double h = MediaQuery.of(context).size.height;
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: w * 0.03),
+      padding: EdgeInsets.symmetric(horizontal: w * 0.01),
       child: SizedBox(
-        height: h * 0.17,
+        height: h * 0.16,
         child: Card(
           shadowColor: AppColor.grey544C4C,
-          elevation: 05,
+          elevation: 5,
           color: AppColor.whiteFFFFFF,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image.asset(
+              Image.network(
                 image,
-                width: w * 0.21,
+                width: w * 0.20,
                 fit: BoxFit.contain,
               ),
               Padding(
@@ -414,7 +272,7 @@ class _CartScreenState extends State<CartScreen> {
                       textsize: 16,
                     ),
                     SizedBox(
-                      height: h * 0.003,
+                      height: h * 0.002,
                     ),
                     LightText(
                       text: site,
@@ -422,101 +280,81 @@ class _CartScreenState extends State<CartScreen> {
                       fontWeight: FontWeight.w600,
                       fontSize: 13,
                     ),
-                    SizedBox(
-                      height: h * 0.01,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: w * 0.02),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          LightText(
-                            text: "Price",
-                            color: AppColor.grey898989,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 16,
-                          ),
-                          LightText(
-                            text: "  ${price} \$",
+                    Row(
+                      children: [
+                        LightText(
+                          text: "Price",
+                          color: AppColor.grey898989,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 16,
+                        ),
+                        Container(
+                          // width: 50,
+                          child: LightText(
+                            // textOverflow: TextOverflow.ellipsis,
+                            text: " \$${price}",
                             color: AppColor.green80CA5B,
                             fontWeight: FontWeight.w600,
-                            fontSize: 16,
+                            fontSize: 14,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ),
               Container(
-                width: w * 0.27,
+                width: w * 0.32,
                 height: h * 0.04,
                 decoration: BoxDecoration(
                     color: AppColor.greenEBFDF2.withOpacity(0.6),
                     borderRadius: BorderRadius.circular(100)),
                 child: Stack(
                   children: [
-                    Container(
-                      child: Center(
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            IconButton(
-                              onPressed: () {
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          InkWell(
+                              onTap: () {
                                 setState(() {
                                   wishList[index]['qty']++;
                                 });
                               },
-                              icon: Icon(
+                              child: Icon(
                                 Icons.add,
-                                size: w * 0.05,
                                 color: AppColor.green80CA5B,
-                              ),
-                            ),
-                            // Spacer(),
-                            IconButton(
-                              onPressed: () {
+                              )),
+                          LightText(
+                              text: wishList[index]['qty'].toString(),textScaler: TextScaler.linear(1),),
+
+                          InkWell(
+                              onTap: () {
                                 setState(() {
                                   if (wishList[index]['qty'] > 1) {
                                     wishList[index]['qty']--;
                                   }
                                 });
                               },
-                              icon: Icon(
+                              child: Icon(
                                 Icons.remove,
-                                size: w * 0.05,
                                 color: AppColor.green80CA5B,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(left: w * 0.10,),
-                      width: w * 0.07,
-                      height: h * 0.50,
-                      decoration: BoxDecoration(
-                          color: AppColor.green80CA5B, shape: BoxShape.circle),
-                      child: Center(
-                        child: LightText(
-                          text: wishList[index]['qty'].toString(),
-                          color: AppColor.whiteFFFFFF,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 20,
-                        ),
+                              )),
+                        ],
                       ),
                     ),
                   ],
                 ),
               ),
-              Spacer(),
-              Image.asset(
-                AppImages.delete,
-                width: w * 0.10,
-              ),
-              SizedBox(
-                width: w * 0.02,
+              IconButton(
+                onPressed: () {
+                  deleteItem(wishList[index]['id']);
+                },
+                icon: Icon(
+                  Icons.delete,
+                  color: AppColor.redF52121,
+                ),
               ),
             ],
           ),

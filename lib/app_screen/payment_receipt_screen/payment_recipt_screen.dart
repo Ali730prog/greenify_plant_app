@@ -7,15 +7,13 @@ import 'package:greenfiy/common_widget/bold_text.dart';
 import 'package:circular_progress_stack/circular_progress_stack.dart';
 import 'package:greenfiy/common_widget/common_button.dart';
 import 'package:greenfiy/common_widget/light_text.dart';
-
-main() {
-  runApp(MaterialApp(
-    home: OrderCompleteReciptScreen(),
-  ));
-}
+import 'package:intl/intl.dart';
 
 class OrderCompleteReciptScreen extends StatefulWidget {
-  const OrderCompleteReciptScreen({super.key});
+  final int? price;
+  final DateTime? Date;
+
+  const OrderCompleteReciptScreen({super.key, this.price, this.Date});
 
   @override
   State<OrderCompleteReciptScreen> createState() =>
@@ -25,6 +23,10 @@ class OrderCompleteReciptScreen extends StatefulWidget {
 class _OrderCompleteReciptScreenState extends State<OrderCompleteReciptScreen> {
   @override
   Widget build(BuildContext context) {
+
+    String formattedDate = DateFormat('dd MMM yyyy').format(widget.Date!);
+    print(formattedDate);
+// int text =  widget.price.
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
 
@@ -35,9 +37,11 @@ class _OrderCompleteReciptScreenState extends State<OrderCompleteReciptScreen> {
           backgroundColor: AppColor.green118844,
           centerTitle: true,
           iconTheme: IconThemeData(color: AppColor.whiteFFFFFF),
-          leading:  IconButton(onPressed: (){
-            Navigator.pop(context);
-          }, icon: Icon(Icons.arrow_back_ios)),
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back_ios)),
           title: BoldText(
             text: "Payment Detail",
             color: AppColor.whiteFFFFFF,
@@ -46,13 +50,15 @@ class _OrderCompleteReciptScreenState extends State<OrderCompleteReciptScreen> {
           ),
         ),
         body: Container(
-          decoration: BoxDecoration(color: AppColor.whiteFFFFFF.withOpacity(0.8)
-          ),
+          decoration:
+              BoxDecoration(color: AppColor.whiteFFFFFF.withOpacity(0.8)),
           width: w,
           height: h,
           child: Column(
             children: [
-              SizedBox(height: h*0.05,),
+              SizedBox(
+                height: h * 0.05,
+              ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: w * 0.05),
                 width: w * 0.80,
@@ -87,11 +93,13 @@ class _OrderCompleteReciptScreenState extends State<OrderCompleteReciptScreen> {
                     ),
                     Center(
                       child: BoldText(
-                        text: "Rs 1235",
+                        text: "Rs ${widget.price.toString()}",
+                        // text: "Rs 1235",
                         color: AppColor.black0000000,
                         fontweight: FontWeight.w500,
                       ),
-                    ),  SizedBox(
+                    ),
+                    SizedBox(
                       height: h * 0.01,
                     ),
                     Center(
@@ -108,7 +116,10 @@ class _OrderCompleteReciptScreenState extends State<OrderCompleteReciptScreen> {
                             textAlign: TextAlign.center,
                             color: AppColor.black0000000,
                             fontWeight: FontWeight.w500,
-                            text: "31 Dec 2023",
+
+                            text: formattedDate,
+                            //widget.Date!.toString(),
+                            // text: "31 Dec 2023",
                             fontSize: 14,
                           ),
                         ],
@@ -207,7 +218,8 @@ class _OrderCompleteReciptScreenState extends State<OrderCompleteReciptScreen> {
                             textAlign: TextAlign.center,
                             color: AppColor.black0000000,
                             fontWeight: FontWeight.w500,
-                            text: "RS 1200",
+                            text: "Rs ${widget.price.toString()}",
+                            // text: "RS 1200",
                             fontSize: 14,
                           ),
                         ],
@@ -230,7 +242,8 @@ class _OrderCompleteReciptScreenState extends State<OrderCompleteReciptScreen> {
                             textAlign: TextAlign.center,
                             color: AppColor.black0000000,
                             fontWeight: FontWeight.w500,
-                            text: "RS 25",
+                            text: "Rs ${widget.price!/10}",
+                            // text: "RS 25",
                             fontSize: 14,
                           ),
                         ],
@@ -254,7 +267,8 @@ class _OrderCompleteReciptScreenState extends State<OrderCompleteReciptScreen> {
                             textAlign: TextAlign.center,
                             color: AppColor.black0000000,
                             fontWeight: FontWeight.w500,
-                            text: "RS 1225",
+                            text: "Rs ${widget.price!-widget.price!/10}",
+                            // text: "RS 1225",
                             fontSize: 14,
                           ),
                         ],
@@ -277,7 +291,7 @@ class _OrderCompleteReciptScreenState extends State<OrderCompleteReciptScreen> {
                         content: LightText(
                           text: "Your Order be Cancled",
                           fontSize: 20,
-                          color: AppColor.black0000000,
+                          color: AppColor.whiteFFFFFF,
                         )));
                   },
                 ),

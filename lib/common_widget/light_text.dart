@@ -9,6 +9,7 @@ class LightText extends StatelessWidget {
   final Color? color;
   final TextAlign? textAlign;
   final TextOverflow? textOverflow;
+  final TextScaler? textScaler;
 
   const LightText(
       {super.key,
@@ -17,13 +18,14 @@ class LightText extends StatelessWidget {
       this.fontSize = 15,
       this.fontWeight = FontWeight.w500,
       this.color = AppColor.grey535252,
-      this.textAlign});
+      this.textAlign, this.textScaler});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       overflow: textOverflow,
       textAlign: textAlign,
+      textScaler: textScaler,
       text,
       style: GoogleFonts.poppins(
         fontSize: fontSize,

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:greenfiy/app_screen/cart_screen/cart_screen.dart';
 import 'package:greenfiy/app_screen/edit_profile_screen/edit_profile_screen.dart';
 import 'package:greenfiy/app_screen/garden_kit_screen/garden_kit_screen.dart';
+import 'package:greenfiy/app_screen/order_complete_screen/order_complete_screen.dart';
+import 'package:greenfiy/app_screen/order_placed_screen/order_placed_screen.dart';
 import 'package:greenfiy/app_screen/wishlist_screen/wishlist_screen.dart';
 import 'package:greenfiy/common_widget/common_button.dart';
 import 'package:greenfiy/common_widget/light_text.dart';
@@ -135,7 +137,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           MaterialPageRoute(builder: (_) => WishlistScreen()));
                     }),
                 _buildsectionwidget(
-                  text: 'About Us',
+                  ontap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderCompleteScreen()));
+                  },
+                  text: 'My Order',
                 ),
                 _buildsectionwidget(
                     text: 'Garden Kit',

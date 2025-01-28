@@ -14,12 +14,32 @@ import 'app_screen/detail_screen/detail_screen.dart';
 import 'app_screen/home_screen/home_screen.dart';
 import 'app_screen/order_complete_screen/order_complete_screen.dart';
 
-main() async{
+// main() async{
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp(
+//     options: DefaultFirebaseOptions.currentPlatform,
+//   );
+//   runApp(MaterialApp(home: GreenifyApp(),));
+// }
+
+// main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   try {
+//     await Firebase.initializeApp(
+//       options: DefaultFirebaseOptions.currentPlatform,
+//     );
+//     print("Firebase initialization successful!");
+//   } catch (e) {
+//     print("Firebase initialization error: $e");
+//   }
+//   runApp(MaterialApp(home: GreenifyApp()));
+// }
+
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  runApp(MaterialApp(home: GreenifyApp(),));
+  await Firebase.initializeApp();
+  runApp(MaterialApp(home: GreenifyApp(),)); // Your main app widget
 }
 class GreenifyApp extends StatefulWidget {
   const GreenifyApp({super.key});
