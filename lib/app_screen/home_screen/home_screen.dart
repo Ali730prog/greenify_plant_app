@@ -1446,8 +1446,12 @@ class _HomeScreenState extends State<HomeScreen>
                   );
                 },
                 child: _wishListWidget(
+                  // name: plant['name'],
+                  // site: category,
+                  // price: plant['price'],
+                  // image: plant['image'],
                   name: plant['name'],
-                  site: category,
+                  site: "Plant",
                   price: plant['price'],
                   image: plant['image'],
                 ),

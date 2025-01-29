@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:greenfiy/app_screen/order_form/order_form_screen.dart';
 import 'package:greenfiy/app_screen/payment_receipt_screen/payment_recipt_screen.dart';
 import '../../app_const/app_color.dart';
 import '../../common_widget/bold_text.dart';
@@ -60,7 +61,8 @@ class _CartScreenState extends State<CartScreen> {
                         doc["productImages"].isNotEmpty
                     ? doc["productImages"]
                         [0] // Use the first image from the list
-                    : "https://firebasestorage.googleapis.com/v0/b/wallify-85936.appspot.com/o/office%2Fcart_3.png?alt=media&token=ff6e8a9d-e09a-4781-819f-c5513b247008", // Default image
+                    : "https://firebasestorage.googleapis.com/v0/b/wallify-85936.appspot.com/o/office%2Fcart_3.png?alt=media&token=ff6e8a9d-e09a-4781-819f-c5513b247008",
+                // Default image
                 "name": doc["productName"] ?? "Unknown",
                 "site": doc["productType"] ?? "Unknown",
                 "price": doc["price"] ?? 0,
@@ -165,9 +167,27 @@ class _CartScreenState extends State<CartScreen> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: AppColor.green118844,
-          title: Text("Cart", style: TextStyle(color: AppColor.whiteFFFFFF)),
+          centerTitle: true,
+          title: const SizedBox(),
+          iconTheme: IconThemeData(color: AppColor.whiteFFFFFF),
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back_ios)),
+          flexibleSpace: Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 5),
+              child: BoldText(
+                text: "Cart",
+                color: AppColor.whiteFFFFFF,
+                fontweight: FontWeight.w600,
+                textsize: 20,
+              ),
+            ),
+          ),
         ),
-        backgroundColor: AppColor.whiteFFFFFF,
         body: wishList.isEmpty
             ? Center(child: CircularProgressIndicator())
             : Column(
@@ -211,16 +231,13 @@ class _CartScreenState extends State<CartScreen> {
                     padding: EdgeInsets.symmetric(horizontal: w * 0.05),
                     child: CommonButton(
                       ontap: () {
-                        // Navigate to the order complete screen
                         Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => OrderCompleteReciptScreen(
-                              price: totalPrice,
-                              Date: DateTime.now(),
-                            ),
-                          ),
-                        );
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => OrderFormScreen(
+                                      price: totalPrice,
+                                      Date: DateTime.now(),
+                                    )));
                       },
                       text: "Buy Now",
                     ),
@@ -327,8 +344,9 @@ class _CartScreenState extends State<CartScreen> {
                                 color: AppColor.green80CA5B,
                               )),
                           LightText(
-                              text: wishList[index]['qty'].toString(),textScaler: TextScaler.linear(1),),
-
+                            text: wishList[index]['qty'].toString(),
+                            textScaler: TextScaler.linear(1),
+                          ),
                           InkWell(
                               onTap: () {
                                 setState(() {

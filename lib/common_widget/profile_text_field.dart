@@ -109,8 +109,9 @@ class CommonProflleTextField extends StatefulWidget {
   final String? prefixImage;
   final VoidCallback? ontap;
   final String? sufixIcon;
-  final bool showDropdownIcon; // Dropdown icon ke liye flag
-  final VoidCallback? onDropdownTap; // Dropdown ke click ka handler
+  final String? labelText;
+  final bool showDropdownIcon;
+  final VoidCallback? onDropdownTap;
 
   const CommonProflleTextField({
     super.key,
@@ -119,8 +120,9 @@ class CommonProflleTextField extends StatefulWidget {
     this.textEditingController,
     this.ontap,
     this.sufixIcon,
-    this.showDropdownIcon = false, // Default value: false
+    this.showDropdownIcon = false,
     this.onDropdownTap,
+    this.labelText,
   });
 
   @override
@@ -138,7 +140,8 @@ class _CommonProflleTextFieldState extends State<CommonProflleTextField> {
       height: h * 0.06,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
-        border: Border.all(width: 1, color: AppColor.grey544C4C.withOpacity(0.4)),
+        border:
+            Border.all(width: 1, color: AppColor.grey544C4C.withOpacity(0.4)),
       ),
       child: Center(
         child: TextField(
@@ -148,39 +151,43 @@ class _CommonProflleTextFieldState extends State<CommonProflleTextField> {
             fontSize: 16,
             color: AppColor.black0000000,
           ),
+
           decoration: InputDecoration(
+            label: widget.labelText != null
+                ? Text(widget.labelText!)
+                : null,
             focusedBorder: InputBorder.none,
             enabledBorder: InputBorder.none,
             errorBorder: InputBorder.none,
             border: InputBorder.none,
             prefixIcon: widget.prefixImage != null
                 ? Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
-              child: ImageIcon(
-                AssetImage(widget.prefixImage!),
-                size: w * 0.06,
-                color: AppColor.grey535252,
-              ),
-            )
+                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                    child: ImageIcon(
+                      AssetImage(widget.prefixImage!),
+                      size: w * 0.06,
+                      color: AppColor.grey535252,
+                    ),
+                  )
                 : null,
             suffixIcon: widget.showDropdownIcon
                 ? IconButton(
-              onPressed: widget.onDropdownTap,
-              icon: Icon(
-                Icons.keyboard_arrow_down_outlined,
-                size: w*0.10,
-                color: AppColor.black0000000,
-              ),
-            )
+                    onPressed: widget.onDropdownTap,
+                    icon: Icon(
+                      Icons.keyboard_arrow_down_outlined,
+                      size: w * 0.10,
+                      color: AppColor.black0000000,
+                    ),
+                  )
                 : (widget.sufixIcon != null
-                ? IconButton(
-              onPressed: widget.ontap,
-              icon: ImageIcon(
-                AssetImage(widget.sufixIcon!),
-                color: AppColor.green118844,
-              ),
-            )
-                : null),
+                    ? IconButton(
+                        onPressed: widget.ontap,
+                        icon: ImageIcon(
+                          AssetImage(widget.sufixIcon!),
+                          color: AppColor.green118844,
+                        ),
+                      )
+                    : null),
             hintText: widget.hintText,
             hintStyle: GoogleFonts.poppins(
               fontWeight: FontWeight.w500,
@@ -188,7 +195,8 @@ class _CommonProflleTextFieldState extends State<CommonProflleTextField> {
               color: AppColor.black0000000,
             ),
             contentPadding: widget.showDropdownIcon
-                ? EdgeInsets.symmetric(horizontal: w * 0.05, vertical: h * 0.015)
+                ? EdgeInsets.symmetric(
+                    horizontal: w * 0.05, vertical: h * 0.015)
                 : EdgeInsets.only(left: w * 0.05, bottom: h * 0.02 / 3),
           ),
         ),

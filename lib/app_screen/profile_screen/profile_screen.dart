@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:greenfiy/app_screen/cart_screen/cart_screen.dart';
@@ -14,6 +15,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:greenfiy/app_const/app_color.dart';
 import 'package:greenfiy/common_widget/bold_text.dart';
 import 'package:circular_progress_stack/circular_progress_stack.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../login_screen/login_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -23,6 +27,55 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+
+  FirebaseAuth _auth = FirebaseAuth.instance;
+
+  void _logout() async {
+    try {
+      await _auth.signOut();
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => LoginScreen()),
+            (route) => false,
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("Error signing out. Please try again."),
+      ));
+    }}
+  String newName = "";
+  String newCity = "";
+  _loadData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    // Load the saved values from SharedPreferences
+    String email = prefs.getString('email') ?? "AHMAD SHEHZAD";
+    String name = prefs.getString('name') ?? "AHMADSHEHZAD@gmail.com";
+    String hobby = prefs.getString('hobby') ?? "Gardening";
+    String dob = prefs.getString('dob') ?? "23/05/2000";
+    String country = prefs.getString('country') ?? 'Pakistan';
+    print("This is my email $email");
+    print("This is my name $name");
+    print("This is my hobby $hobby");
+    print("This is my dob $dob");
+    print("This is my country $country");
+
+
+    setState(() {
+      newName = name;
+      newCity = country;
+      print("This is my $name");
+      print("This is my $name");
+    });
+  }
+@override
+  void initState() {
+    super.initState();
+
+    _loadData();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
@@ -34,6 +87,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
           backgroundColor: AppColor.green118844,
           centerTitle: true,
           title: const SizedBox(),
+          iconTheme: IconThemeData(color: AppColor.whiteFFFFFF),
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back_ios)),
           flexibleSpace: Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
@@ -47,6 +106,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
         ),
+
         backgroundColor: AppColor.whiteFFFFFF,
         body: Container(
           width: w,
@@ -57,25 +117,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  width: w * 0.40,
-                  height: h * 0.24,
+                  width: w * 0.30,
+                  height: h * 0.18,
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
-                      AnimatedStackCircularProgressBar(
-                        size: 130,
-                        progressStrokeWidth: 5,
-                        backStrokeWidth: 5,
-                        startAngle: 0,
-                        backColor: const Color(0xffD7DEE7),
-                        bars: [
-                          AnimatedBarValue(
-                            barColor: AppColor.green118844,
-                            barValues: 100,
-                            fullProgressColors: Colors.red,
-                          ),
-                        ],
-                      ),
+
                       // Profile Image
                       Positioned(
                         child: Container(
@@ -84,7 +131,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
-                              image: AssetImage("assets/images/AliHasanain.jpg")
+                              image: AssetImage("assets/images/profile2.jpg")
                                   as ImageProvider,
                               fit: BoxFit.cover,
                             ),
@@ -96,13 +143,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
 
                 BoldText(
-                  text: "Ahmad Shehzad",
+                  // text: "",
+                  text: newName,
                   color: AppColor.black0000000,
                   textsize: 19,
                   fontweight: FontWeight.w500,
                 ),
                 BoldText(
-                  text: "Sargodha",
+
+                  text: newCity,
+                  // text: "Sargodha",
                   color: AppColor.grey666666,
                   textsize: 15,
                   fontweight: FontWeight.w500,
@@ -147,7 +197,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ontap: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (_) => GardenKitScreen()));
-                    }),
+                    }), _buildsectionwidget(
+                    text: 'Log Out',
+                    ontap: _logout),
               ],
             ),
           ),

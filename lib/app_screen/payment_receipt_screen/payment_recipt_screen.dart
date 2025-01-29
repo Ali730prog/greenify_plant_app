@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:greenfiy/app_const/app_color.dart';
 import 'package:greenfiy/app_const/app_images.dart';
 import 'package:greenfiy/app_screen/bottom_bar_screen/bottom_bar_screen.dart';
+import 'package:greenfiy/app_screen/order_complete_screen/order_complete_screen.dart';
 import 'package:greenfiy/common_widget/bold_text.dart';
 import 'package:circular_progress_stack/circular_progress_stack.dart';
 import 'package:greenfiy/common_widget/common_button.dart';
@@ -12,8 +13,14 @@ import 'package:intl/intl.dart';
 class OrderCompleteReciptScreen extends StatefulWidget {
   final int? price;
   final DateTime? Date;
+  final String? name;
+  final String? phoneNumber;
 
-  const OrderCompleteReciptScreen({super.key, this.price, this.Date});
+  const OrderCompleteReciptScreen(
+      {super.key, this.price, this.Date,
+        this.name = "Ahmad Shazad",
+        this.phoneNumber ="A06453826151"
+      });
 
   @override
   State<OrderCompleteReciptScreen> createState() =>
@@ -23,7 +30,6 @@ class OrderCompleteReciptScreen extends StatefulWidget {
 class _OrderCompleteReciptScreenState extends State<OrderCompleteReciptScreen> {
   @override
   Widget build(BuildContext context) {
-
     String formattedDate = DateFormat('dd MMM yyyy').format(widget.Date!);
     print(formattedDate);
 // int text =  widget.price.
@@ -157,7 +163,7 @@ class _OrderCompleteReciptScreenState extends State<OrderCompleteReciptScreen> {
                           LightText(
                             textAlign: TextAlign.center,
                             color: AppColor.grey868686,
-                            text: "Reference num",
+                            text: "Phone num",
                             fontSize: 14,
                           ),
                           Spacer(),
@@ -165,7 +171,8 @@ class _OrderCompleteReciptScreenState extends State<OrderCompleteReciptScreen> {
                             textAlign: TextAlign.center,
                             color: AppColor.black0000000,
                             fontWeight: FontWeight.w500,
-                            text: "A06453826151",
+                            text: widget.phoneNumber.toString(),
+                            // text: "A06453826151",
                             fontSize: 14,
                           ),
                         ],
@@ -188,7 +195,8 @@ class _OrderCompleteReciptScreenState extends State<OrderCompleteReciptScreen> {
                             textAlign: TextAlign.center,
                             color: AppColor.black0000000,
                             fontWeight: FontWeight.w500,
-                            text: "Ali Hasnain",
+                            text: widget.name.toString(),
+                            // "Ali Hasnain",
                             fontSize: 14,
                           ),
                         ],
@@ -242,7 +250,7 @@ class _OrderCompleteReciptScreenState extends State<OrderCompleteReciptScreen> {
                             textAlign: TextAlign.center,
                             color: AppColor.black0000000,
                             fontWeight: FontWeight.w500,
-                            text: "Rs ${widget.price!/10}",
+                            text: "Rs ${widget.price! / 10}",
                             // text: "RS 25",
                             fontSize: 14,
                           ),
@@ -267,7 +275,7 @@ class _OrderCompleteReciptScreenState extends State<OrderCompleteReciptScreen> {
                             textAlign: TextAlign.center,
                             color: AppColor.black0000000,
                             fontWeight: FontWeight.w500,
-                            text: "Rs ${widget.price!-widget.price!/10}",
+                            text: "Rs ${widget.price! - widget.price! / 10}",
                             // text: "RS 1225",
                             fontSize: 14,
                           ),
@@ -303,12 +311,16 @@ class _OrderCompleteReciptScreenState extends State<OrderCompleteReciptScreen> {
                 padding: EdgeInsets.symmetric(horizontal: w * 0.10),
                 child: CommonButton(
                   border: 40,
-                  text: "Back to home Page",
+                  text: "Continue",
                   ontap: () {
+                    setState(() {
+                      isorder = true;
+                    });
+
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => BottomBarScreen()));
+                            builder: (context) => OrderCompleteScreen()));
                   },
                 ),
               )
@@ -319,3 +331,5 @@ class _OrderCompleteReciptScreenState extends State<OrderCompleteReciptScreen> {
     );
   }
 }
+
+bool isorder = false;

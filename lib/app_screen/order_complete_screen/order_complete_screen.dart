@@ -8,6 +8,8 @@ import 'package:circular_progress_stack/circular_progress_stack.dart';
 import 'package:greenfiy/common_widget/common_button.dart';
 import 'package:greenfiy/common_widget/light_text.dart';
 
+import '../payment_receipt_screen/payment_recipt_screen.dart';
+
 class OrderCompleteScreen extends StatefulWidget {
   final int? price;
 
@@ -38,11 +40,11 @@ class _OrderCompleteScreenState extends State<OrderCompleteScreen> {
               decoration: BoxDecoration(
                   color: AppColor.whiteFFFFFF,
                   borderRadius: BorderRadius.circular(20)),
-              child: Column(
+              child: isorder ?  Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Center(
+                   Center(
                     child: Container(
                       margin: EdgeInsets.only(top: h * 0.03),
                       width: w * 0.35,
@@ -58,7 +60,7 @@ class _OrderCompleteScreenState extends State<OrderCompleteScreen> {
                         color: AppColor.green80CA5B,
                       ),
                     ),
-                  ),
+                  ) ,
                   SizedBox(
                     height: h * 0.02,
                   ),
@@ -112,7 +114,22 @@ class _OrderCompleteScreenState extends State<OrderCompleteScreen> {
                     color: AppColor.grey868686,
                   ),
                 ],
-              ),
+              ) : Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+
+                children: [
+
+                  BoldText(
+                    text: "Sorry Your not",
+                    fontweight: FontWeight.w500,
+                  ),
+                  BoldText(
+                    text: "Order Found",
+                    fontweight: FontWeight.w500,
+                  ),
+                ],
+              )
             ),
           ),
         ),
